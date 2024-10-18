@@ -10,10 +10,11 @@ const Sidebar = () => {
   const pathname = usePathname();
   return (
     <div className="sticky left-0 top-0 flex flex-col h-screen w-fit justify-between bg-dark-1 p-6 pt-28 text-white max-sm:hidden lg:w-[264px]">
-      <div className="flex  flex-col gap-6">
+      <div className="flex flex-1 flex-col gap-6">
         {sidebarLinks.map((link) => {
+          // getting the path name if active to change link styling on active active state.
           const isActive =
-            pathname === link.route || pathname.startsWith(link.route);
+            pathname === link.route || pathname.startsWith(`${link.route}/`);
           return (
             <Link
               href={link.route}
